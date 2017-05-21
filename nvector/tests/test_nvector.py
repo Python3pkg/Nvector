@@ -73,10 +73,10 @@ class TestNvector(unittest.TestCase):
         azimuth = np.arctan2(p_AB_N[1], p_AB_N[0])
         # positive angle about down-axis
 
-        print('Ex1, delta north, east, down = {0}, {1}, {2}'.format(p_AB_N[0],
+        print(('Ex1, delta north, east, down = {0}, {1}, {2}'.format(p_AB_N[0],
                                                                     p_AB_N[1],
-                                                                    p_AB_N[2]))
-        print('Ex1, azimuth = {0} deg'.format(deg(azimuth)))
+                                                                    p_AB_N[2])))
+        print(('Ex1, azimuth = {0} deg'.format(deg(azimuth))))
 
         assert_array_almost_equal(p_AB_N[0], 331730.23478089)
         assert_array_almost_equal(p_AB_N[1], 332997.87498927)
@@ -118,7 +118,7 @@ class TestNvector(unittest.TestCase):
         lat_EC, long_EC = n_E2lat_lon(n_EC_E)
         # Here we also assume that the user wants output height (= - depth):
         msg = 'Ex2, Pos C: lat, long = {},{} deg,  height = {} m'
-        print(msg.format(deg(lat_EC), deg(long_EC), -z_EC))
+        print((msg.format(deg(lat_EC), deg(long_EC), -z_EC)))
 
         assert_array_almost_equal(deg(lat_EC), 53.32637826)
         assert_array_almost_equal(deg(long_EC), 63.46812344)
@@ -141,7 +141,7 @@ class TestNvector(unittest.TestCase):
         lat_EB, long_EB = n_E2lat_lon(n_EB_E)
         h_EB = -z_EB
         msg = 'Ex3, Pos B: lat, long = {} {} deg, height = {} m'
-        print(msg.format(deg(lat_EB), deg(long_EB), h_EB))
+        print((msg.format(deg(lat_EB), deg(long_EB), h_EB)))
 
         assert_array_almost_equal(deg(lat_EB), 39.37874867)
         assert_array_almost_equal(deg(long_EB), -48.0127875)
@@ -164,7 +164,7 @@ class TestNvector(unittest.TestCase):
         # Step2: Find the ECEF-vector p_EB_E:
         p_EB_E = n_EB_E2p_EB_E(n_EB_E, -h_EB)
 
-        print('Ex4: p_EB_E = {0} m'.format(p_EB_E.ravel()))
+        print(('Ex4: p_EB_E = {0} m'.format(p_EB_E.ravel())))
 
         assert_array_almost_equal(p_EB_E.ravel(),
                                   [6373290.27721828, 222560.20067474,
@@ -185,7 +185,7 @@ class TestNvector(unittest.TestCase):
         d_AB = euclidean_distance(n_EA_E, n_EB_E, radius=r_Earth)
 
         msg = 'Ex5, Great circle distance = {} km, Euclidean distance = {} km'
-        print(msg.format(s_AB / 1000, d_AB / 1000))
+        print((msg.format(s_AB / 1000, d_AB / 1000)))
 
         assert_array_almost_equal(s_AB / 1000, 332.45644411)
         assert_array_almost_equal(d_AB / 1000, 332.41872486)
@@ -214,7 +214,7 @@ class TestNvector(unittest.TestCase):
         # convenient to see lat, long:
         lat_EB_ti, long_EB_ti = n_E2lat_lon(n_EB_E_ti)
         msg = 'Ex6, Interpolated position: lat, long = {} {} deg'
-        print(msg.format(deg(lat_EB_ti), deg(long_EB_ti)))
+        print((msg.format(deg(lat_EB_ti), deg(long_EB_ti))))
 
         assert_array_almost_equal(deg(lat_EB_ti), 89.7999805)
         assert_array_almost_equal(deg(long_EB_ti), 180.)
@@ -270,8 +270,8 @@ class TestNvector(unittest.TestCase):
         # When displaying the resulting position for humans, it is more
         # convenient to see lat, long:
         lat_EB, long_EB = n_E2lat_lon(n_EB_E)
-        print('Ex8, Destination: lat, long = {0} {1} deg'.format(deg(lat_EB),
-                                                                 deg(long_EB)))
+        print(('Ex8, Destination: lat, long = {0} {1} deg'.format(deg(lat_EB),
+                                                                 deg(long_EB))))
 
         assert_array_almost_equal(deg(lat_EB), 79.99154867)
         assert_array_almost_equal(deg(long_EB), -90.01769837)
@@ -301,7 +301,7 @@ class TestNvector(unittest.TestCase):
         # convenient to see lat, long:
         lat_EC, long_EC = n_E2lat_lon(n_EC_E)
         msg = 'Ex9, Intersection: lat, long = {} {} deg'
-        print(msg.format(deg(lat_EC), deg(long_EC)))
+        print((msg.format(deg(lat_EC), deg(long_EC))))
         assert_array_almost_equal(deg(lat_EC), 40.31864307)
         assert_array_almost_equal(deg(long_EC), 55.90186788)
 
@@ -327,7 +327,7 @@ class TestNvector(unittest.TestCase):
         # Find the Euclidean cross track distance:
         d_xt = -np.dot(c_E.T, n_EB_E) * radius
         msg = 'Ex10, Cross track distance = {} m, Euclidean = {} m'
-        print(msg.format(s_xt, d_xt))
+        print((msg.format(s_xt, d_xt)))
 
         assert_array_almost_equal(s_xt, 11117.79911015)
         assert_array_almost_equal(d_xt, 11117.79346741)

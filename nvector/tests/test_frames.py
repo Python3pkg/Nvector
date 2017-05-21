@@ -106,8 +106,8 @@ class TestExamples(unittest.TestCase):
         azimuth = np.round(delta.azimuth_deg)
         # positive angle about down-axis
 
-        print('Ex1, delta north, east, down = {0}'.format(delta.pvector.T))
-        print('Ex1, azimuth = {0} deg'.format(azimuth))
+        print(('Ex1, delta north, east, down = {0}'.format(delta.pvector.T)))
+        print(('Ex1, azimuth = {0} deg'.format(azimuth)))
 
         true_y = [278.2566243359911, 198.7547317612817, 119.25283909376164,
                   39.750946370747656, -39.75094637085409, -119.25283909387079,
@@ -144,8 +144,8 @@ class TestExamples(unittest.TestCase):
         azimuth = np.round(np.abs(delta.azimuth_deg))
         # positive angle about down-axis
 
-        print('Ex1, delta north, east, down = {0}'.format(delta.pvector.T))
-        print('Ex1, azimuth = {0} deg'.format(azimuth))
+        print(('Ex1, delta north, east, down = {0}'.format(delta.pvector.T)))
+        print(('Ex1, azimuth = {0} deg'.format(azimuth)))
 
         true_x = [276.436537069603, 197.45466985931083, 118.47280221160541,
                   39.49093416312986, -39.490934249581684, -118.47280298990226,
@@ -171,8 +171,8 @@ class TestExamples(unittest.TestCase):
         x, y, z = delta.pvector
         azimuth = delta.azimuth_deg
         elevation = delta.elevation_deg
-        print('Ex1, delta north, east, down = {0}, {1}, {2}'.format(x, y, z))
-        print('Ex1, azimuth = {0} deg'.format(azimuth))
+        print(('Ex1, delta north, east, down = {0}, {1}, {2}'.format(x, y, z)))
+        print(('Ex1, azimuth = {0} deg'.format(azimuth)))
 
         assert_array_almost_equal(x, 331730.23478089)
         assert_array_almost_equal(y, 332997.87498927)
@@ -203,7 +203,7 @@ class TestExamples(unittest.TestCase):
         z_EC = pointC.z
         # Here we also assume that the user wants output height (= - depth):
         msg = 'Ex2, Pos C: lat, long = {},{} deg,  height = {} m'
-        print(msg.format(lat_EC, lon_EC, -z_EC))
+        print((msg.format(lat_EC, lon_EC, -z_EC)))
 
         assert_array_almost_equal(lat_EC, 53.32637826)
         assert_array_almost_equal(lon_EC, 63.46812344)
@@ -222,7 +222,7 @@ class TestExamples(unittest.TestCase):
         lat, lon, h = pointB.latitude_deg, pointB.longitude_deg, -pointB.z
 
         msg = 'Ex3, Pos B: lat, lon = {} {} deg, height = {} m'
-        print(msg.format(lat, lon, h))
+        print((msg.format(lat, lon, h)))
         assert_array_almost_equal(lat, 39.37874867)
         assert_array_almost_equal(lon, -48.0127875)
         assert_array_almost_equal(h, 4702059.83429485)
@@ -233,7 +233,7 @@ class TestExamples(unittest.TestCase):
         pointB = wgs84.GeoPoint(latitude=1, longitude=2, z=-3, degrees=True)
 
         p_EB_E = pointB.to_ecef_vector()
-        print('Ex4: p_EB_E = {0} m'.format(p_EB_E.pvector.ravel()))
+        print(('Ex4: p_EB_E = {0} m'.format(p_EB_E.pvector.ravel())))
 
         assert_array_almost_equal(p_EB_E.pvector.ravel(),
                                   [6373290.27721828, 222560.20067474,
@@ -251,7 +251,7 @@ class TestExamples(unittest.TestCase):
         d_AB = p_AB_E.length
 
         msg = 'Ex5, Great circle distance = {} km, Euclidean distance = {} km'
-        print(msg.format(s_AB / 1000, d_AB / 1000))
+        print((msg.format(s_AB / 1000, d_AB / 1000)))
 
         assert_array_almost_equal(s_AB / 1000, 332.45644411)
         assert_array_almost_equal(d_AB / 1000, 332.41872486)
@@ -268,7 +268,7 @@ class TestExamples(unittest.TestCase):
         s1_AB = path.track_distance(method='exact')
 
         msg = 'Ex5, Great circle distance = {} km, Euclidean distance = {} km'
-        print(msg.format(s_AB / 1000, d_AB / 1000))
+        print((msg.format(s_AB / 1000, d_AB / 1000)))
 
         assert_array_almost_equal(s_AB / 1000, 332.45644411)
         assert_array_almost_equal(s1_AB / 1000, 332.45644411)
@@ -286,7 +286,7 @@ class TestExamples(unittest.TestCase):
         d_AB = p_AB_E.length
 
         msg = 'Ex5, Great circle distance = {} km, Euclidean distance = {} km'
-        print(msg.format(s_AB / 1000, d_AB / 1000))
+        print((msg.format(s_AB / 1000, d_AB / 1000)))
 
         assert_array_almost_equal(s_AB / 1000, 333.94750946834665)
         assert_array_almost_equal(d_AB / 1000, 333.90962112)
@@ -317,7 +317,7 @@ class TestExamples(unittest.TestCase):
         g_EB_E_ti = n_EB_E_ti.to_geo_point()
         lat_ti, lon_ti = g_EB_E_ti.latitude_deg, g_EB_E_ti.longitude_deg
         msg = 'Ex6, Interpolated position: lat, long = {} deg, {} deg'
-        print(msg.format(lat_ti, lon_ti))
+        print((msg.format(lat_ti, lon_ti)))
 
         assert_array_almost_equal(lat_ti, 89.7999805)
         assert_array_almost_equal(lon_ti, 180.)
@@ -328,7 +328,7 @@ class TestExamples(unittest.TestCase):
         g_EB_E_ti = path.interpolate(ti_n).to_geo_point()
         lat_ti, lon_ti = g_EB_E_ti.latitude_deg, g_EB_E_ti.longitude_deg
         msg = 'Ex6, Interpolated position: lat, long = {} deg, {} deg'
-        print(msg.format(lat_ti, lon_ti))
+        print((msg.format(lat_ti, lon_ti)))
 
         assert_array_almost_equal(lat_ti, 89.7999805)
         assert_array_almost_equal(lon_ti, 180.)
@@ -363,7 +363,7 @@ class TestExamples(unittest.TestCase):
 
         lat_B, lon_B = pointB.latitude_deg, pointB.longitude_deg
 
-        print('Ex8, Destination: lat, long = {0} {1} deg'.format(lat_B, lon_B))
+        print(('Ex8, Destination: lat, long = {0} {1} deg'.format(lat_B, lon_B)))
         assert_array_almost_equal(lat_B, 79.99154867)
         assert_array_almost_equal(lon_B, -90.01769837)
 
@@ -382,7 +382,7 @@ class TestExamples(unittest.TestCase):
 
         lat, lon = pointC.latitude_deg, pointC.longitude_deg
         msg = 'Ex9, Intersection: lat, long = {} {} deg'
-        print(msg.format(lat, lon))
+        print((msg.format(lat, lon)))
         assert_array_almost_equal(lat, 40.31864307)
         assert_array_almost_equal(lon, 55.90186788)
 
@@ -400,7 +400,7 @@ class TestExamples(unittest.TestCase):
 
         lat, lon = pointC.latitude_deg, pointC.longitude_deg
         msg = 'Ex9, Intersection: lat, long = {} {} deg'
-        print(msg.format(lat, lon))
+        print((msg.format(lat, lon)))
         self.assertTrue(np.isnan(lat))
         self.assertTrue(np.isnan(lon))
 
@@ -420,7 +420,7 @@ class TestExamples(unittest.TestCase):
         s_xt = pathA.cross_track_distance(pointB, method='greatcircle')
         d_xt = pathA.cross_track_distance(pointB, method='euclidean')
         msg = 'Ex10, Cross track distance = {} m, Euclidean = {} m'
-        print(msg.format(s_xt, d_xt))
+        print((msg.format(s_xt, d_xt)))
 
         pointC = pathA.closest_point_on_great_circle(pointB)
         pointC2 = pathA.closest_point_on_great_circle(pointB2)

@@ -3,7 +3,7 @@ Created on 29. des. 2015
 
 @author: pab
 """
-from __future__ import division, print_function
+
 import numpy as np
 from numpy import deprecate
 from numpy.linalg import norm

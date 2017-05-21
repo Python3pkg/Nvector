@@ -694,7 +694,7 @@ The functional solutions to the remaining problems can be found
 {0}{1}{2}{3}{4}{5}
 """.format(example_1_txt, example_1_obj_solution, 'Functional ',
            example_1_fun_solution, see_also(1),
-           get_examples(range(2, 11), OO=True))
+           get_examples(list(range(2, 11)), OO=True))
 
 
 getting_started_functional = """
@@ -710,7 +710,7 @@ The object-oriented solutions to the remaining problems can be found
 {0}{1}{2}{3}{4}{5}
 """.format(example_1_txt, example_1_fun_solution,
            'OO-', example_1_obj_solution, see_also(1),
-           get_examples(range(2, 11), OO=False))
+           get_examples(list(range(2, 11)), OO=False))
 
 
 class _TestDocStrings(object):

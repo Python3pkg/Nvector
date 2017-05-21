@@ -20,7 +20,7 @@ from os.path import relpath, dirname
 
 path0 = os.path.abspath(os.path.pardir)
 
-print('min path: {0}'.format(path0))
+print(('min path: {0}'.format(path0)))
 sys.path.insert(0, path0)
 
 __location__ = os.path.join(os.getcwd(), os.path.dirname(
@@ -69,8 +69,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'nvector'
-copyright = u'2015, Norwegian Defence Research Establishment (FFI)'
+project = 'nvector'
+copyright = '2015, Norwegian Defence Research Establishment (FFI)'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -83,7 +83,7 @@ release = _VERSION
 # The short X.Y version (including .devXXXX, rcX, b1 suffixes if present)
 version = re.sub(r'(\d+\.\d+)\.\d+(.*)', r'\1\2', release)
 version = re.sub(r'(\.dev\d+).*?$', r'\1', version)
-print("{0!s} {1!s}".format(version, release))
+print(("{0!s} {1!s}".format(version, release)))
 
 # The full version, including alpha/beta/rc tags.
 # release = '0.4.1'  # Is set by calling `setup.py docs`
@@ -150,7 +150,7 @@ for name in ['sphinx.ext.linkcode', 'numpydoc.linkcode']:
         extensions.append(name)
         break
     except ImportError:
-        print(str(ImportError))
+        print((str(ImportError)))
 else:
     print("NOTE: linkcode extension not found -- no links to source generated")
 
@@ -323,8 +323,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual])
 latex_documents = [
-  ('index', 'user_guide.tex', u'nvector Documentation',
-   u'Kenneth Gade and Per A Brodtkorb', 'manual'),
+  ('index', 'user_guide.tex', 'nvector Documentation',
+   'Kenneth Gade and Per A Brodtkorb', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

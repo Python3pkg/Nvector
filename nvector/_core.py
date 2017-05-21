@@ -36,7 +36,7 @@ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 THE POSSIBILITY OF SUCH DAMAGE.
 """
-from __future__ import division, print_function
+
 import warnings
 import numpy as np
 from numpy import rad2deg, deg2rad, arctan2, sin, cos, array, cross, dot, sqrt
@@ -151,7 +151,7 @@ def select_ellipsoid(name):
     if name:
         option = ELLIPSOID_IX.get(name.lower().replace(' ', ''), name)
     else:
-        option = input(msg)
+        option = eval(input(msg))
     ellipsoid, fullname = ELLIPSOID[option]
     return ellipsoid['a'], ellipsoid['f'], fullname
 
